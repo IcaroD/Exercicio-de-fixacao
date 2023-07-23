@@ -1,31 +1,31 @@
 ﻿using System.Globalization;
+using System.IO.Compression;
 
 namespace ExercicioFixaçao
 {
-    internal class Program
+    internal class Second
     {
         static void Main(string[] args)
         {
-            string produto1 = "Computador";
-            string produto2 = "Mesa de escritório";
+            Console.WriteLine("Entre com seu nome completo:");
+            string nomeCompleto = Console.ReadLine();
+            Console.WriteLine("Quantos quartos tem na sua casa?");
+            int quartos = int.Parse(Console.ReadLine());
+            Console.WriteLine("Entre com o preço de um produto:");
+            double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.WriteLine("Entre seu último nome, idade e altura (mesma linha):");
+            string[] linha = Console.ReadLine().Split(' ');
 
-            byte idade = 30;
-            int codigo = 5290;
-            char genero = 'M';
+            string nome = linha[0];
+            int idade = int.Parse(linha[1]);
+            double altura = double.Parse(linha[2], CultureInfo.InvariantCulture);
 
-            double preco1 = 2100.0;
-            double preco2 = 650.50;
-            double medida = 53.234567;
-
-            Console.WriteLine("Produtos:");
-            Console.WriteLine($"{produto1}, cujo preço é de $ {preco1:F2}");
-            Console.WriteLine($"{produto2}, cujo preço é de $ {preco2:F2}");
-            Console.WriteLine();
-            Console.WriteLine($"Registro: {idade} anos de idade, código {codigo} e gênero: {genero}");
-            Console.WriteLine();
-            Console.WriteLine($"Medida co oito casas decimais {medida:F8}");
-            Console.WriteLine($"Arredondado (três casas decimais): {medida:F3}");
-            Console.WriteLine("Separador decimal invariant culture: " + medida.ToString("F3", CultureInfo.InvariantCulture));
+            Console.WriteLine(nomeCompleto);
+            Console.WriteLine(quartos);
+            Console.WriteLine(preco.ToString("F2", CultureInfo.InvariantCulture));
+            Console.WriteLine(nome);
+            Console.WriteLine(idade);
+            Console.WriteLine(altura.ToString("F2", CultureInfo.InvariantCulture));
         }
     }
 }
